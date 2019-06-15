@@ -2,7 +2,7 @@
 Making leds blink 
 
 # Wiring
-![traffic light](dic/img/trafficLight.jpg)
+![traffic light](doc/img/trafficLight.jpg)
 
 # Code
 
