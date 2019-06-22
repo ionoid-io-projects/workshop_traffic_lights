@@ -39,6 +39,10 @@ chmod +x trafficLight
 ./trafficLight
 ```
 
+## How to stop the program
+To quit or stop the program click on **Ctrl+C**
+
+
 Congratulation.
 
 Ressource
