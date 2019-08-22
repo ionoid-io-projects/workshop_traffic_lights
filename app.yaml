@@ -1,9 +1,9 @@
-name: traffic
+name: traffic-light-env
 version: 1.0
 apps:
-    traffic:
+    traffic-light-env:
         environment:
             RED_PIN:    12
             YELLOW_PIN:    13
             GREEN_PIN:    18
-        command:    /bin/traffic
+        command:    /bin/trafficLight

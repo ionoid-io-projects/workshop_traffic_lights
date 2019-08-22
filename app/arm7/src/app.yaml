@@ -1,0 +1,5 @@
+name: traffic-light-env
+version: 1.0
+apps:
+    led-blink:
+        command:    /bin/trafficLight
