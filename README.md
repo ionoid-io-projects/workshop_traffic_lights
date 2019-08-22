@@ -3,7 +3,7 @@ Making leds blink
 
 # Wiring
 
-https://www.circuito.io/app?components=9443,11372,200000
+https://www.circuito.io/app?components=9443,9590,9591,9594,200000
 
 
 ![traffic light](doc/img/trafficLight.jpg)
