@@ -2,10 +2,11 @@ package main
 
 import (
 	"fmt"
+	"os"
+	"os/signal"
+	"syscall"
+	"strconv"
 	"time"
-  	"os"
-  	"os/signal"
-  	"syscall"
 
 	"github.com/stianeikeland/go-rpio"
 )
@@ -19,9 +20,24 @@ func main() {
 	}
 
 	// Get the pin for each of the lights
-	redPin := rpio.Pin(25)
-	yellowPin := rpio.Pin(8)
-	greenPin := rpio.Pin(7)
+	RED_PIN, err := strconv.Atoi(os.Getenv("RED_PIN"))
+	if err != nil {
+		RED_PIN = 25
+	}
+
+	YELLOW_PIN, err := strconv.Atoi(os.Getenv("YELLOW_PIN"))
+	if err != nil {
+		YELLOW_PIN = 8
+	}	
+
+	GREEN_PIN, err := strconv.Atoi(os.Getenv("GREEN_PIN"))
+	if err != nil {
+		GREEN_PIN = 7
+	}
+
+	redPin := rpio.Pin(RED_PIN)
+	yellowPin := rpio.Pin(YELLOW_PIN)
+	greenPin := rpio.Pin(GREEN_PIN)
 
 	// Set the pins to output mode
 	redPin.Output()
@@ -34,17 +50,17 @@ func main() {
 	go func() {
 		<-c
 		redPin.Low()
-    	yellowPin.Low()
-    	greenPin.Low()
-    	os.Exit(0)
-    }()
+		yellowPin.Low()
+		greenPin.Low()
+		os.Exit(0)
+	}()
 
-    defer rpio.Close()
+	defer rpio.Close()
 
-  	// Turn lights off to start.
-  	redPin.Low()
-  	yellowPin.Low()
-  	greenPin.Low()
+	// Turn lights off to start.
+	redPin.Low()
+	yellowPin.Low()
+	greenPin.Low()
 
 	// A while true loop.
 	for {
