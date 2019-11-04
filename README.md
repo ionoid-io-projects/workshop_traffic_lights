@@ -8,6 +8,8 @@ https://www.circuito.io/app?components=9443,9590,9591,9594,200000
 
 ![traffic light](doc/img/trafficLight.jpg)
 
+![wiring](doc/img/gpio.png)
+
 # Code
 
 ## 1- Power your raspberry
